@@ -20,3 +20,33 @@ $price_diff=$price_a-$price_b;
 
 echo '八百屋Aでは大根が'.$price_a.'円でした<br>';
 ?>
+
+<!-- 組み込み関数 -->
+<?php
+echo mb_strlen('こんにちは！');//文字数カウント
+echo '<br>';
+echo mb_strlen(123);
+echo '<br>';
+$hello = 'hello';
+echo mb_strlen($hello);//変数も入れれる
+echo '<br>';
+echo time();//1970年1月1日0時0分0秒からの通算秒
+// 引数のない関数
+?>
+
+<br><br>
+
+<?php
+$price1=1000;//商品価格
+$quantity1=1;//個数
+$total_price1=$price1*$quantity1;//合計金額
+echo '合計金額は'.$total_price1.'円です';
+?>
+
+<!-- 自作関数 -->
+<?php
+function calculation(){//関数の定義
+  echo 2000*2;
+}
+calculation();
+?>
