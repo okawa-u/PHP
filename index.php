@@ -121,6 +121,65 @@ print_r($subjects);//配列の中身を表示
 $subjects[1]='フランス語';//修正
 $subjects[]='国語'//追加
 // $subjects = array(); //初期化
+?>
 
+<!-- キーに任意の値をつけられる-連想配列 -->
+<?php
+$subjects_rensou = array(
+  'math' =>'数学'
+);
+echo $subjects_rensou['math'];
+?>
+
+<br><br>
+
+<!-- 条件分岐 -->
+<?php
+$a=5;
+$b=3;
+if($a+$b==8){ //条件分(true or falseが返される)
+  echo $a . '+' . $b . 'は8です';
+}
+?>
+<!-- '等しくない'は!= -->
+
+<br><br>
+
+<!-- 値の有無による条件分岐 -->
+<?php
+$hello = 'hello';
+if($hello){
+  echo $hello;
+}
+?>
+
+<br><br>
+
+<?php
+$a=5;
+$b=3;
+if($a == $b){
+  echo $a . 'と' . $b . 'は同じ値です';
+}else{
+  echo $a . 'と' . $b . 'の値は異なります';
+}
+?>
+
+<!-- elseifは条件式の追加 丸括弧必要-->
+<!-- if文は上から優先に処理されていくので重複していないか注意 -->
+
+<br><br>
+
+<!-- 複数の条件式 -->
+<?php
+$age = 22 ;
+$job = 'student';
+if ($age <= 18 || $age >= 60){
+  echo '入場料は1,000円です';
+}elseif($age <=25 && $job == 'student'){
+  echo '入場料は1,200円です';
+}else{
+  echo '入場料は1,500円です';
+}
 ?>
 
