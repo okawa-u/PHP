@@ -103,7 +103,9 @@ global $post //$post=wordpressが持ってる変数
 
 ?>
 
+
 <br><br>
+
 
 <!-- 配列 -->
 <?php
@@ -131,7 +133,9 @@ $subjects_rensou = array(
 echo $subjects_rensou['math'];
 ?>
 
+
 <br><br>
+
 
 <!-- 条件分岐 -->
 <?php
@@ -183,3 +187,27 @@ if ($age <= 18 || $age >= 60){
 }
 ?>
 
+<br><br>
+
+<!-- 条件分岐のネスト -->
+<?php
+$who = '木村';
+$greeting = 'おはようございます';
+if ($who == '木村'){
+  if ($greeting){
+    echo '木村さん'.$greeting;
+  }else{
+    echo '木村さんには挨拶をしない';
+  }
+}elseif($who == '田村'){
+  echo 'どうも';
+}else{
+  echo 'スルー';
+}
+?>
+
+<br><br>
+
+<?php
+
+?>
