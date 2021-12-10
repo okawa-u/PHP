@@ -84,3 +84,43 @@ TaxIncludedPrice(2000,5);
 <!-- 関数は何かを表示するためだけのものではなく，
 戻り値としてその関数で実行した値をさらに別の関数で使ったり
 いろんなPHPの処理の中で関数の実行結果を使いまわせる． -->
+
+
+<!-- 変数のスコープ -->
+<?php
+$a =10;
+echo '<br>';
+function number(){
+  global $a;//グローバル宣言
+  $a=8;
+  echo $a;
+}
+number();
+echo '<br>';
+echo $a;
+
+global $post //$post=wordpressが持ってる変数
+
+?>
+
+<br><br>
+
+<!-- 配列 -->
+<?php
+$math ='数学';
+
+$subjects = array('数学','英語','歴史');
+// $subjects= ['数学','英語','歴史'];でもOK
+
+echo $subjects [1] ;//キーは角カッコで囲む
+
+print_r($subjects);//配列の中身を表示
+// 配列を一気に出力することもできる
+
+// 配列の修正・追加・初期化
+$subjects[1]='フランス語';//修正
+$subjects[]='国語'//追加
+// $subjects = array(); //初期化
+
+?>
+
