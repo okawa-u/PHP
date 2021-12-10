@@ -35,7 +35,7 @@ echo time();//1970年1月1日0時0分0秒からの通算秒
 ?>
 
 <br><br>
-
+<!-- 商品価格と個数の計算式 -->
 <?php
 $price1=1000;//商品価格
 $quantity1=1;//個数
@@ -43,10 +43,44 @@ $total_price1=$price1*$quantity1;//合計金額
 echo '合計金額は'.$total_price1.'円です';
 ?>
 
-<!-- 自作関数 -->
+<br><br>
+
+<!-- 自作関数(関数の定義) -->
 <?php
-function calculation(){//関数の定義
+function calculation(){
   echo 2000*2;
 }
-calculation();
+calculation();//関数の実行
 ?>
+
+<br><br>
+
+<!-- 引数の概念を入れた自作関数 -->
+<?php
+function totalPrice($price,$quantity){//関数の定義
+  echo '合計金額は'.number_format($price*$quantity).'円です';//任意の処理
+}
+totalPrice(1000,2);//値を代入
+totalPrice(2000,2);
+?>
+<!-- 引数は任意の名前でOK -->
+<!-- 関数は引数を取れる -->
+
+<br><br>
+
+<!-- 戻り値 -->
+<?php
+function getTotalPrice($price,$quantity){
+  return $price * $quantity;//return=データとして使えるように返す*関数ではない
+}
+getTotalPrice(2000,5);//値として戻すだけ
+
+function TaxIncludedPrice($price,$quantity){
+  echo getTotalPrice($price,$quantity)*1.1;
+}
+TaxIncludedPrice(2000,5);
+?>
+
+<!-- 関数は何かを表示するためだけのものではなく，
+戻り値としてその関数で実行した値をさらに別の関数で使ったり
+いろんなPHPの処理の中で関数の実行結果を使いまわせる． -->
