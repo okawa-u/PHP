@@ -113,6 +113,7 @@ $math ='数学';
 
 $subjects = array('数学','英語','歴史');
 // $subjects= ['数学','英語','歴史'];でもOK
+// 配列は一つの変数に複数のデータを持たせることができる
 
 echo $subjects [1] ;//キーは角カッコで囲む
 
@@ -128,7 +129,7 @@ $subjects[]='国語'//追加
 <!-- キーに任意の値をつけられる-連想配列 -->
 <?php
 $subjects_rensou = array(
-  'math' =>'数学'
+  'math' =>'数学'//1というキーをmathに置き換えた
 );
 echo $subjects_rensou['math'];
 ?>
@@ -208,6 +209,47 @@ if ($who == '木村'){
 
 <br><br>
 
+<!-- for文 (ループ・繰り返し処理)-->
 <?php
-
+for($i=1;$i<=10;$i++){//++=インクリメント
+  echo $i.'<br>';
+  if($i==5){
+    break;
+  }
+} 
 ?>
+<!-- 式1:最初のループ処理時に実行
+式２：各ループ処理の開始時に実行
+式３：各ループ処理の終了時に実行 -->
+
+<br>
+
+<!-- foreach文 -->
+<?php
+$subjects = array('数学','英語','歴史');
+echo '<br>';
+foreach($subjects as $value){
+  echo $value.'<br>';
+}
+?>
+<!-- 配列から各要素の値を取り出して処理をする -->
+
+<br>
+
+<!-- キーの名前を一緒に取り出す -->
+<?php
+$subjects = array('数学','英語','歴史');
+$subjects = array(
+  'math' =>'数学',
+  'english' => '英語',
+  'history' => '歴史'
+);
+foreach($subjects as $key => $value){
+// $subjects=任意の変数(配列orオブジェクト)
+// $key => $value =各ループにおいて要素のキーと値を入れる任意の変数
+  echo $key.'は'. $value.'<br>';
+}
+?>
+
+<!-- 多次元配列＝連想配列を作り，その連想配列の値をさらに他の連想配列で作る -->
+<!-- 値が配列になっている -->
