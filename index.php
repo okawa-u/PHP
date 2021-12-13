@@ -113,7 +113,7 @@ $math ='数学';
 
 $subjects = array('数学','英語','歴史');
 // $subjects= ['数学','英語','歴史'];でもOK
-// 配列は一つの変数に複数のデータを持たせることができる
+// 配列は一つの変数に複数のデータを持たせることができる!
 
 echo $subjects [1] ;//キーは角カッコで囲む
 
@@ -225,8 +225,11 @@ for($i=1;$i<=10;$i++){//++=インクリメント
 <br>
 
 <!-- foreach文 -->
+<!-- 配列から一つ一つ値を取り出す作業をループ処理．一気に値を取り出せる -->
 <?php
 $subjects = array('数学','英語','歴史');
+print_r($subjects);//指定した変数の情報を表示できる
+
 echo '<br>';
 foreach($subjects as $value){
   echo $value.'<br>';
@@ -250,6 +253,76 @@ foreach($subjects as $key => $value){
   echo $key.'は'. $value.'<br>';
 }
 ?>
+<!-- asは配列からkeyとvalueを取り出している -->
 
+<br><br>
+
+<!-- 多次元配列を利用したforeach -->
 <!-- 多次元配列＝連想配列を作り，その連想配列の値をさらに他の連想配列で作る -->
 <!-- 値が配列になっている -->
+<?php
+$grades_list = array( //変数に配列を代入
+  '山田' => array(
+    '数学' => 90,
+    '英語' => 82,
+    '歴史' => 70
+  ),
+  '清水' => array(
+    '数学' => 52,
+    '英語' => 62,
+    '歴史' => 88
+  ),
+  '清水' => array(
+    '数学' => 96,
+    '英語' => 94,
+    '歴史' => 80
+  )
+);
+
+foreach($grades_list as $key => $grades){
+  foreach($grades as $subject =>$score)
+  echo $key . 'さんの'.$subject.'スコアは'.$score.'点です<br>';
+}
+?>
+
+<br>
+
+<!-- while文 -->
+<!-- 特定の条件式がtrueを返すまで処理を続ける構文 -->
+<?php
+$i = 1;
+while ($i < 5){
+  echo $i . '<br>';
+  $i++;
+}
+?>
+<br>
+<!-- WordPressでの使われ方 -->
+if(have_posts()):
+  while (have_posts()): the_post():
+    <!-- 記事の数だけ繰り返し処理 -->
+    endwhile;
+else:
+  <!-- 投稿がない場合の処理 -->
+endif;
+
+<br>
+
+<!-- PHPとHTMLの混在+コロン構文 -->
+
+<?php
+$a = 5;
+$b = 3;
+?>
+<?php if ($a > $b) : ?>
+<div>
+  <ul>
+    <li>あああああ</li>
+    <li>いいいいい</li>
+    <li>ううううう</li>
+  </ul>
+</div>
+<?php endif; ?>
+
+<br><br>
+
